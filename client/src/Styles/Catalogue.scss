@@ -1,0 +1,13 @@
+@import '../Variables/Variables.scss';
+
+.catalogueSection {
+    background-color: white;
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @media screen and (max-width: $medium){
+        width: 90%;
+    }
+}

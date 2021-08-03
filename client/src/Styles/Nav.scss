@@ -1,0 +1,26 @@
+@import "../Variables/Variables.scss";
+
+.nav{
+    background-color: $primaryColor;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+
+    .contenedor{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    a{
+        height: 34px;
+        width: 134px;
+        background-image: url(https://http2.mlstatic.com/frontend-assets/ui-navigation/5.15.1/mercadolibre/logo__large_plus.png);
+    }
+
+    .searchForm{
+        height: 2.4rem;
+    }
+}   
