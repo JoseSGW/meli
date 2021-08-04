@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss';
+import { Breadcrumb } from './components/Breadcrumb';
 import { Catalogue } from './components/Catalogue';
 import { DetailsProduct } from './components/DetailsProduct';
 import { Nav } from './components/Nav';
-
 //context
 
 import { SearchState } from './context/DataSearch/SearchState';
@@ -21,6 +21,7 @@ function App() {
           <div className="App">
 
             <Nav />
+            <Breadcrumb/>
 
             <Switch>
               <Route path="/items/:id" component={DetailsProduct} />

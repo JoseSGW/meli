@@ -8,8 +8,7 @@ export const Catalogue = () => {
     const { items } = useContext(SearchContext);
 
     return (
-        <section className="catalogueSection">
-
+        <ol className="catalogueSection">
             {
                 items?.length > 0 && items.map(item =>
                     <Cart
@@ -21,7 +20,6 @@ export const Catalogue = () => {
                     />
                 )
             }
-
-        </section>
+        </ol>
     )
 }

@@ -1,22 +1,33 @@
+@import "../Variables/Variables.scss";
 
+.searchForm {
+  display: flex;
+  width: 70%;
+  height: 100%;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0.2px 0.2px 2px #888888;
 
-.searchForm{
-    width: 70%;
+  input {
+    outline: none;
+    width: 90%;
+    border: none;
     height: 100%;
-    
+    padding: 0 15px;
+    background-color: white;
+  }
+  button {
+    background-image: url("../images/outline_search_black_24dp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 10%;
+    border: none;
+    height: 100%;
+    background-color: white;
+    border-left: 1rem;
 
-
-    input{
-        width: 80%;
-        border: none;
-        height: 98%;
-        padding: 0 15px;
-        background-color: white;
+    &:hover {
+      cursor: pointer;
     }
-    button{
-        width: 15%;
-        border: none;
-        height: 100%;
-        background-color: white;
-    }
+  }
 }

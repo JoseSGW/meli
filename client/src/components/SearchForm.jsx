@@ -14,7 +14,6 @@ export const SearchForm = () => {
         e.preventDefault();
         //ejecutar busqueda
         getData(query);
-        //setdata(data);
         history.push(`/items?search=${query}`);
     }
 
@@ -22,7 +21,7 @@ export const SearchForm = () => {
     return (
         <form className="searchForm" onSubmit={handleSubmit}>
             <input placeholder="Buscar productos" onChange={e => setquery(e.target.value)} value={query} type="text" />
-            <button>Buscar</button>
+            <button></button>
         </form>
     )
 }
