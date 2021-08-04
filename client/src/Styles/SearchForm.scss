@@ -9,12 +9,17 @@
   box-shadow: 0.2px 0.2px 2px #888888;
 
   input {
+    font-size: medium;
     outline: none;
     width: 90%;
     border: none;
     height: 100%;
     padding: 0 15px;
     background-color: white;
+
+    &::placeholder{
+      color: rgb(215, 215, 215)
+    }
   }
   button {
     background-image: url("../images/outline_search_black_24dp.png");

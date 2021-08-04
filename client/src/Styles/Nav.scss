@@ -13,12 +13,25 @@
         align-items: center;
         width: 70%;
         margin: 0 auto;
+        gap: 2rem;
+
+        @media screen and (max-width: $small){         
+            gap: 0;
+            width: 90%;
+        }
     }
 
     a{
         height: 34px;
         width: 134px;
         background-image: url(https://http2.mlstatic.com/frontend-assets/ui-navigation/5.15.1/mercadolibre/logo__large_plus.png);
+    
+        @media screen and (max-width: $small){         
+            background-image: url(https://http2.mlstatic.com/frontend-assets/ui-navigation/5.15.2/mercadolibre/logo__small.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 60px;
+        }
     }
 
     .searchForm{
