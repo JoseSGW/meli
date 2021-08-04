@@ -54,7 +54,7 @@ app.get('/api/items/:id', async (req, res) => {
                 price: {
                     currency: dataItem.price,
                     amount: dataItem.available_quantity,
-                    decimals: Number
+                    decimals: (dataItem.price - Math.floor(dataItem.price)).toFixed(2)
                 },
                 picture: dataItem.pictures[0].url,
                 condition: dataItem.condition,
@@ -93,9 +93,12 @@ app.get('/api/items', async (req, res) => {
         const { results, filters } = data; // extraigo solo lo que necesito
 
         let categories = [];
+        let breadcrumb = [];
         if (filters[0]) {
             const { values } = filters[0];
+            const { path_from_root } = values[0];
             categories = values.map(value => value.name); //array categorias
+            breadcrumb = path_from_root.map(path => path.name);
         }
 
         let items = [];
@@ -125,6 +128,7 @@ app.get('/api/items', async (req, res) => {
             },
             categories,
             items,
+            breadcrumb
         }
 
         res.json(response);

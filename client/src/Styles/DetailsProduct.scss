@@ -3,6 +3,7 @@
 .product-details{
     display: flex;
     flex-direction: column;
+    gap: 4rem;
     max-width: 70%;
     margin: 0 auto;
     background-color: white;
@@ -11,6 +12,7 @@
     @media screen and (max-width: $medium){
         padding: 1rem;
         max-width: 90%;
+        gap: 2rem;
     }
 
     .product-info{
@@ -44,6 +46,29 @@
 
             h3,h2{
                 font-weight: 500;
+            }
+
+            button{
+                width: 100%;
+                background-color: rgb(52, 131, 250);
+                border: none;
+                font-weight: 700;
+                font-size: medium;
+                color: white;
+                padding: 1rem 0;
+                border-radius: 7px;
+                margin-top: 2rem;
+                cursor: pointer;
+                border: 2px solid transparent;
+
+                &:hover{
+                    background-color: rgb(41, 104, 200);                   
+                }
+
+                &:active{
+                    background-color: rgb(31, 78, 150);
+                    border: 2px solid rgb(52, 131, 250);
+                }
             }
         }
     }

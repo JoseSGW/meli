@@ -1,1 +1,23 @@
-@import '../Variables/Variables.scss';
+@import "../Variables/Variables.scss";
+
+.breadcrumb {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+  width: 70%;
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  .li-breadcrumb {
+    display: flex;
+    align-items: center;
+    
+    &:not(:first-of-type)::before {
+      content: " ";
+      background-image: url("../images/outline_chevron_right_black_24dp.png");
+      background-size: 28px 28px;
+      height: 28px;
+      width: 28px;
+    }
+  }
+}

@@ -14,15 +14,14 @@ export const SearchForm = () => {
         e.preventDefault();
         //ejecutar busqueda
         getData(query);
-        //setdata(data);
         history.push(`/items?search=${query}`);
     }
 
 
     return (
         <form className="searchForm" onSubmit={handleSubmit}>
-            <input placeholder="Buscar productos" onChange={e => setquery(e.target.value)} value={query} type="text" />
-            <button>Buscar</button>
+            <input placeholder="Buscar productos, marcas y más" onChange={e => setquery(e.target.value)} value={query} type="text" />
+            <button></button>
         </form>
     )
 }

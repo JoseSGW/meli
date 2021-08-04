@@ -25,11 +25,12 @@ export const DetailsProduct = () => {
                     <h4>{condition} - {sold_quantity} vendidos</h4>
                     <h3>{title}</h3>
                     <h2>$ {price?.currency}</h2>
+                    <button>Comprar ahora</button>
                 </div>
             </div>
             <div className="product-description">
                 <h2>Descripción del producto</h2> 
-                <p>{description.split('\n').map(text => <>{text}<br/></>)}</p> 
+                <p>{description?.split('\n').map(text => <>{text}<br/></>)}</p> 
             </div>
         </main>
     )

@@ -9,6 +9,7 @@ export const SearchState = (props) => {
         author: {},
         categories: [],
         items: [],
+        breadcrumb: [],
         isLoading: true,
     }
 
@@ -26,7 +27,7 @@ export const SearchState = (props) => {
 
 
     return (
-        <SearchContext.Provider value={{ getData, items: state.items }}>
+        <SearchContext.Provider value={{ getData, items: state.items, breadcrumb: state.breadcrumb }}>
             {props.children}
         </SearchContext.Provider>
     )

@@ -10,7 +10,8 @@ export default (state, action) => {
                 ...state,
                 items: state.items.splice().concat(action.payload.items),
                 author: { ...action.payload.author },
-                categories: state.categories.splice().concat(action.payload.categories)
+                categories: state.categories.splice().concat(action.payload.categories),
+                breadcrumb: state.breadcrumb.splice().concat(action.payload.breadcrumb)
             }
         default:
             return state;
