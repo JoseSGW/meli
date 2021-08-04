@@ -16,6 +16,7 @@ export const DetailsProduct = () => {
 
     const { id, title, price, picture, condition, free_shipping, sold_quantity, description } = !!item.id && item;
 
+
     return (
         //item.length > 0 &&
         <main className="product-details">
@@ -24,13 +25,13 @@ export const DetailsProduct = () => {
                 <div className="details">
                     <h4>{condition} - {sold_quantity} vendidos</h4>
                     <h3>{title}</h3>
-                    <h2>$ {price?.currency}</h2>
+                    <h2>$ {price?.currency}<span className='decimals'>{price?.decimals !== "00" && price?.decimals}</span></h2>
                     <button>Comprar ahora</button>
                 </div>
             </div>
             <div className="product-description">
                 <h2>Descripción del producto</h2> 
-                <p>{description?.split('\n').map(text => <>{text}<br/></>)}</p> 
+                <p>{description?.split('\n').map((text, i) => <React.Fragment key={i}>{text}<br/></React.Fragment>)}</p> 
             </div>
         </main>
     )

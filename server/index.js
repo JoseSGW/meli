@@ -52,12 +52,12 @@ app.get('/api/items/:id', async (req, res) => {
                 id: dataItem.id,
                 title: dataItem.title,
                 price: {
-                    currency: dataItem.price,
+                    currency: Math.floor(dataItem.price),
                     amount: dataItem.available_quantity,
-                    decimals: (dataItem.price - Math.floor(dataItem.price)).toFixed(2)
+                    decimals: (dataItem.price - Math.floor(dataItem.price)).toFixed(2).split('.').pop()
                 },
                 picture: dataItem.pictures[0].url,
-                condition: dataItem.condition,
+                condition: dataItem.condition === "new" ? "Nuevo" : "Usado",
                 free_shipping: dataItem.shipping.free_shipping,
                 sold_quantity: dataItem.sold_quantity,
                 description: dataDescription.plain_text
@@ -71,6 +71,7 @@ app.get('/api/items/:id', async (req, res) => {
                 lastname: "Ruz"
             },
             item,
+            
         }
 
         res.json(response)
@@ -110,9 +111,9 @@ app.get('/api/items', async (req, res) => {
                     id: result.id,
                     title: result.title,
                     price: {
-                        currency: result.price,
+                        currency: Math.floor(result.price),
                         amount: result.available_quantity,
-                        decimals: (result.price - Math.floor(result.price)).toFixed(2)
+                        decimals: (result.price - Math.floor(result.price)).toFixed(2).split('.').pop()
                     },
                     picture: result.thumbnail,
                     condition: result.condition,
