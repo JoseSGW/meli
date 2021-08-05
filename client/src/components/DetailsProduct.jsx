@@ -1,17 +1,19 @@
 import React, { useContext, useEffect } from 'react'
-import { useHistory, useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { DetailsContext } from '../context/DetailsProduct/DetailsContext';
 import "../Styles/DetailsProduct.scss"
 
 export const DetailsProduct = () => {
 
-    const { item, getData } = useContext(DetailsContext);
+    const { item, getData, clearBread } = useContext(DetailsContext);
     const { id: url_id } = useParams();
 
     useEffect(() => {
         getData(url_id);
+        return () => {
+            clearBread();
+        }
     }, []);
-
 
 
     const { id, title, price, picture, condition, free_shipping, sold_quantity, description } = !!item.id && item;
@@ -30,8 +32,8 @@ export const DetailsProduct = () => {
                 </div>
             </div>
             <div className="product-description">
-                <h2>Descripción del producto</h2> 
-                <p>{description?.split('\n').map((text, i) => <React.Fragment key={i}>{text}<br/></React.Fragment>)}</p> 
+                <h2>Descripción del producto</h2>
+                <p>{description?.split('\n').map((text, i) => <React.Fragment key={i}>{text}<br /></React.Fragment>)}</p>
             </div>
         </main>
     )

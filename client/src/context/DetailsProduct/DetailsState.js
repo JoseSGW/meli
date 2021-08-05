@@ -9,7 +9,7 @@ export const DetailsState = (props) => {
     const initialState = {
         author: {},
         item: {},
-        isLoading: true,
+        breadcrumbItem: []
     }
 
     const [state, dispatch] = useReducer(DetailsReducer, initialState);
@@ -24,9 +24,15 @@ export const DetailsState = (props) => {
         });
     }
 
+    const clearBread = () => {
+        dispatch({
+            type: types.CLEAR_BREAD,
+        });
+    }
+
 
     return (
-        <DetailsContext.Provider value={{ getData, item: state.item }}>
+        <DetailsContext.Provider value={{ getData, clearBread, item: state.item, breadcrumbItem: state.breadcrumbItem }}>
             {props.children}
         </DetailsContext.Provider>
     )

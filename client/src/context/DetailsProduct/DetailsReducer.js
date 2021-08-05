@@ -10,6 +10,13 @@ export default (state, action) => {
                 ...state,
                 item: {...action.payload.item },
                 author: { ...action.payload.author },
+                breadcrumbItem: state.breadcrumbItem.concat(action.payload.item.breadcrumb)
+            }
+
+        case types.CLEAR_BREAD:
+            return {
+                ...state,
+                breadcrumbItem: state.breadcrumbItem.splice()
             }
         default:
             return state;
