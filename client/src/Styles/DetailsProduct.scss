@@ -21,12 +21,20 @@
     gap: 2rem;
     width: 100%;
 
-    @media screen and (max-width: $high-medium) {
+    @media screen and (max-width: $medium) {
       flex-direction: column;
     }
 
-    .producto-image {
-      width: 70%;
+    .product-image {
+      max-width: 70%;
+      object-fit: contain;
+
+      @media screen and (max-width: $medium) {
+        margin: 0 auto;
+      }
+      @media screen and (max-width: $high-medium) {
+        max-width: 50%;
+      }
     }
 
     .details {
@@ -35,8 +43,14 @@
       flex-direction: column;
       align-items: flex-start;
       text-align: start;
+      border-radius: 9px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+
       @media screen and (max-width: $high-medium) {
-        width: 100%;
+        width: 90%;
+        padding: 1rem;
+        margin: 0 auto;
       }
 
       h4 {
@@ -57,7 +71,7 @@
         color: white;
         padding: 1rem 0;
         border-radius: 7px;
-        margin-top: 2rem;
+        margin-top: 3rem;
         cursor: pointer;
         border: 2px solid transparent;
 
@@ -80,6 +94,11 @@
         top: -6px;
         margin-left: 5px;
       }
+    }
+
+    .free-shipping {
+      color: rgb(0, 166, 80);
+      font-weight: 500;
     }
   }
 
