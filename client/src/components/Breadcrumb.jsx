@@ -1,23 +1,26 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
 import { SearchContext } from '../context/DataSearch/SearchContext';
+import { DetailsContext } from '../context/DetailsProduct/DetailsContext';
 import '../Styles/Breadcrumb.scss';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export const Breadcrumb = () => {
 
     const { breadcrumb } = useContext(SearchContext);
-    const history = useHistory();
+    const { breadcrumbItem } = useContext(DetailsContext);
 
-    console.log(history)
     return (
         <ol className='breadcrumb'>
             {
                 breadcrumb?.map((b, i) =>
                     <li className='li-breadcrumb' key={i}>
-                        {b}                        
+                        {b}
                     </li>)
-
+            }
+            {
+                breadcrumbItem?.length > 0 && breadcrumbItem.map((b, i) =>
+                    <li className='li-breadcrumb' key={i}>
+                        {b}
+                    </li>)
             }
         </ol>
     )

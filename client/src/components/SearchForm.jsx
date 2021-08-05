@@ -20,8 +20,8 @@ export const SearchForm = () => {
 
     return (
         <form className="searchForm" onSubmit={handleSubmit}>
-            <input placeholder="Buscar productos, marcas y más" onChange={e => setquery(e.target.value)} value={query} type="text" />
-            <button></button>
+            <input name='input-search' placeholder="Buscar productos, marcas y más" onChange={e => setquery(e.target.value)} value={query} type="text" />
+            <button name='search-button'>Buscar</button>
         </form>
     )
 }

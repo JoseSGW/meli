@@ -13,6 +13,16 @@ export default (state, action) => {
                 categories: state.categories.splice().concat(action.payload.categories),
                 breadcrumb: state.breadcrumb.splice().concat(action.payload.breadcrumb)
             }
+        case types.ADD_CRUMBS:
+            return {
+                ...state,
+                breadcrumb: state.breadcrumb.concat(action.payload)
+            }
+        case types.PREV_CRUMBS:
+                return {
+                    ...state,
+                    breadcrumb: state.breadcrumb.splice().concat(action.payload)
+                }
         default:
             return state;
     }

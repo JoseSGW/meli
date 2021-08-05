@@ -19,11 +19,16 @@
     padding: 0 15px;
     background-color: white;
 
+    @media screen and (max-width: $small){
+      width: 70%;
+    }
+
     &::placeholder{
       color: rgb(215, 215, 215)
     }
   }
   button {
+    font-size: 0px;
     background-image: url("../images/outline_search_black_24dp.png");
     background-repeat: no-repeat;
     background-position: center;

@@ -1,4 +1,7 @@
 export const types = {
 
-    SET_ITEMS: "SET_ITEMS"
+    SET_ITEMS: "SET_ITEMS",
+    ADD_CRUMBS: "ADD_CRUMBS",
+    PREV_CRUMBS: "PREV_CRUMBS",
+    CLEAR_BREAD: "CLEAR_BREAD"
 }

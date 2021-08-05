@@ -10,7 +10,6 @@ export const SearchState = (props) => {
         categories: [],
         items: [],
         breadcrumb: [],
-        isLoading: true,
     }
 
     const [state, dispatch] = useReducer(SearchReducer, initialState);
@@ -25,9 +24,23 @@ export const SearchState = (props) => {
         });
     }
 
+    const addCrumbs = (crumbs) => {
+        dispatch({
+            type: types.ADD_CRUMBS,
+            payload: crumbs
+        })
+    }
+
+    const previousBreadCrumb = (prevBC) => {
+        dispatch({
+            type: types.PREV_CRUMBS,
+            payload: prevBC
+        })
+    }
+
 
     return (
-        <SearchContext.Provider value={{ getData, items: state.items, breadcrumb: state.breadcrumb }}>
+        <SearchContext.Provider value={{ getData, addCrumbs, previousBreadCrumb, items: state.items, breadcrumb: state.breadcrumb }}>
             {props.children}
         </SearchContext.Provider>
     )

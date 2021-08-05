@@ -2,11 +2,20 @@
 
 .breadcrumb {
   display: flex;
-  gap: 1rem;
   list-style-type: none;
   width: 70%;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
+  font-size: small;
+
+  @media screen and (max-width: $medium) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: $small) {
+    width: 90%;
+    flex-wrap: wrap;
+  }
 
   .li-breadcrumb {
     display: flex;

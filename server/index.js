@@ -11,7 +11,7 @@ const app = express();
 //configuracion general
 app.use(morgan("dev"));
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header('Access-Control-Allow-Credentials', true);
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -52,18 +52,19 @@ app.get('/api/items/:id', async (req, res) => {
                 id: dataItem.id,
                 title: dataItem.title,
                 price: {
-                    currency: dataItem.price,
+                    currency: Math.floor(dataItem.price),
                     amount: dataItem.available_quantity,
-                    decimals: (dataItem.price - Math.floor(dataItem.price)).toFixed(2)
+                    decimals: (dataItem.price - Math.floor(dataItem.price)).toFixed(2).split('.').pop()
                 },
                 picture: dataItem.pictures[0].url,
-                condition: dataItem.condition,
+                condition: dataItem.condition === "new" ? "Nuevo" : "Usado",
                 free_shipping: dataItem.shipping.free_shipping,
                 sold_quantity: dataItem.sold_quantity,
-                description: dataDescription.plain_text
+                description: dataDescription.plain_text,
+                breadcrumb: dataItem.attributes.filter(at =>  at.id === 'BRAND' || at.id === 'MATERIAL')
+                .map(at => at.value_name)
             }
         }
-
 
         const response = {
             author: {
@@ -110,9 +111,9 @@ app.get('/api/items', async (req, res) => {
                     id: result.id,
                     title: result.title,
                     price: {
-                        currency: result.price,
+                        currency: Math.floor(result.price),
                         amount: result.available_quantity,
-                        decimals: (result.price - Math.floor(result.price)).toFixed(2)
+                        decimals: (result.price - Math.floor(result.price)).toFixed(2).split('.').pop()
                     },
                     picture: result.thumbnail,
                     condition: result.condition,
@@ -141,10 +142,7 @@ app.get('/api/items', async (req, res) => {
 
 
 
-
-
 const PORT = process.env.PORT || 3001;
-
 
 
 app.listen(PORT, () => {

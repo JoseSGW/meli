@@ -13,10 +13,11 @@ export const Catalogue = () => {
                 items?.length > 0 && items.map(item =>
                     <Cart
                         key={item.id}
-                        price={item.price?.currency}
+                        priceCurrent={item.price?.currency}
+                        priceDecimals={item.price?.decimals}
                         title={item.title}
                         picture={item.picture}
-                        id={item.id}
+                        id={item.id}                        
                     />
                 )
             }
