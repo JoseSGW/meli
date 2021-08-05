@@ -16,7 +16,7 @@ export const DetailsProduct = () => {
     }, []);
 
 
-    const { id, title, price, picture, condition, free_shipping, sold_quantity, description } = !!item.id && item;
+    const { /* id,  */title, price, picture, condition, free_shipping, sold_quantity, description } = !!item.id && item;
 
 
     return (
@@ -27,7 +27,9 @@ export const DetailsProduct = () => {
                 <div className="details">
                     <h4>{condition} - {sold_quantity} vendidos</h4>
                     <h3>{title}</h3>
-                    <h2>$ {price?.currency}<span className='decimals'>{price?.decimals !== "00" && price?.decimals}</span></h2>
+                    
+                <h2>$ {price?.currency}<span className='decimals'>{price?.decimals !== "00" && price?.decimals}</span></h2>
+                    <span className='free-shipping'>{free_shipping && 'Envió gratuito'}</span>
                     <button>Comprar ahora</button>
                 </div>
             </div>
